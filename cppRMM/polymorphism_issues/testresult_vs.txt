@@ -1,0 +1,14 @@
+-> create parent: 0x342a70
+--- (parent) new int(0) 0x342aa8
+--- -> create child: 0x342a70
+--- --- (child) new int(1) 342ad8
+--- --- (child) delete int(1) 342ad8
+--- -< detele child: 0x342a70
+--- (parent) delete int(0) 0x342aa8
+-< delete parent: 0x342a70
+-> create parent: 0x342a70
+--- (parent) new int(0) 0x342aa8
+--- -> create child: 0x342a70
+--- --- (child) new int(1) 342ad8
+--- (parent) delete int(0) 0x342aa8
+-< delete parent: 0x342a70
