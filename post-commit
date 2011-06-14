@@ -6,6 +6,7 @@ file_def=`echo $file|tr . _`
 echo "#ifndef $file_def" > $file
 echo "#define $file_def" >> $file
 echo "static const char *git_commit_str = \""`git log --pretty=oneline -n1`"\";" >> $file
+echo "static const char *git_date_of_commit_str = \""`git log -1 | grep "^Date:"`"\";" >> $file
 echo "#endif" >> $file
 
 # ¬ыведем сообщение о том что все успешно
