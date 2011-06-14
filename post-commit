@@ -1,0 +1,13 @@
+#!/bin/sh
+# post-commit
+#Файл в который мы будем записывать коммит
+file="git_commit.h"
+file_def=`echo $file|tr . _`
+echo "#ifndef $file_def" > $file
+echo "#define $file_def" >> $file
+echo "static const char *git_commit_str = \""`git log --pretty=oneline -n1`"\";" >> $file
+echo "#endif" >> $file
+
+# Выведем сообщение о том что все успешно
+echo "--- Git commit is written to $file ---"
+echo "--- !!! NOW PLEASE RECOMPILE YOUR PROJECT TO TAKE EFFECT !!! ---"
