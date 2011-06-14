@@ -12,3 +12,5 @@ echo "#endif" >> $file
 # ¬ыведем сообщение о том что все успешно
 echo "--- Git commit is written to $file ---"
 echo "--- !!! NOW PLEASE RECOMPILE YOUR PROJECT TO TAKE EFFECT !!! ---"
+
+#end
