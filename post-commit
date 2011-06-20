@@ -1,15 +1,15 @@
 #!/bin/sh
 # post-commit
-#Файл в который мы будем записывать коммит
+# version file
 file="git_commit.h"
-file_def=`echo $file|tr . _`
+file_def=`echo $file|tr "." "_"|tr "[:lower:]" "[:upper:]"`
 echo "#ifndef $file_def" > $file
 echo "#define $file_def" >> $file
 echo "static const char *git_commit_str = \""`git log --pretty=oneline -n1`"\";" >> $file
 echo "static const char *git_date_of_commit_str = \""`git log -1 | grep "^Date:"`"\";" >> $file
 echo "#endif" >> $file
 
-# Выведем сообщение о том что все успешно
+# Output message
 echo "--- Git commit is written to $file ---"
 echo "--- !!! NOW PLEASE RECOMPILE YOUR PROJECT TO TAKE EFFECT !!! ---"
 
