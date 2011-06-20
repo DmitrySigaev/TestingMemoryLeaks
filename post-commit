@@ -2,12 +2,12 @@
 # post-commit
 # version file
 file="git_commit.h"
-file_def=`echo $file|tr "." "_"|tr "[:lower:]" "[:upper:]"`
+file_def=`echo _$file|tr "." "__"|tr "[:lower:]" "[:upper:]"_`
 echo "#ifndef $file_def" > $file
 echo "#define $file_def" >> $file
 echo "static const char *git_commit_str = \""`git log --pretty=oneline -n1`"\";" >> $file
 echo "static const char *git_date_of_commit_str = \""`git log -1 | grep "^Date:"`"\";" >> $file
-echo "#endif" >> $file
+echo "#endif /* $file_def */" >> $file
 
 # Output message
 echo "--- Git commit is written to $file ---"
