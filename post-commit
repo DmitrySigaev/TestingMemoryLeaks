@@ -2,7 +2,7 @@
 # post-commit
 # version file
 file="git_commit.h"
-file_def=`echo _$file|tr "." "__"|tr "[:lower:]" "[:upper:]"_`
+file_def=`echo _$file_|tr "." "__"|tr "[:lower:]" "[:upper:]"`
 echo "#ifndef $file_def" > $file
 echo "#define $file_def" >> $file
 echo "static const char *git_commit_str = \""`git log --pretty=oneline -n1`"\";" >> $file
