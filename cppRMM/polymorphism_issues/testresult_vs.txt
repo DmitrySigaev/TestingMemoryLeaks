@@ -1,3 +1,8 @@
+
+Git commit string: 597da191598f89faed4a09ebe8a08eaebdf3d752 version print
+Date of commit: Date: Mon Jun 20 21:57:59 2011 +0400
+Usage: .\testing\pm_mem_issue.exe 
+
 -> create parent: 0x342a70
 --- (parent) new int(0) 0x342aa8
 --- -> create child: 0x342a70
