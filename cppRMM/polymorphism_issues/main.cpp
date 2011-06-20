@@ -1,4 +1,6 @@
 #include  <stdio.h>
+
+#include "git_commit.h"
 // Define class Parent.
   class Parent {
     public:
@@ -37,8 +39,36 @@
       int* p_child;
   };
 
-int main (void)
+
+void printHelp(const char* error, const char* filename)
 {
+    printf("%s\n", error);
+    printf("Git commit string: %s\n", git_commit_str);
+    printf("Date of commit: %s\n", git_date_of_commit_str);
+    printf("Usage: %s \n\n", filename);
+}
+
+int main(int argc, char* argv[])
+{
+    int i = 1;
+    while(argc > i && '-' == argv[i][0])
+    {
+        switch(argv[i][1])
+        {
+        case 'v':
+        case 'V':
+           printHelp("Unit Test application.", argv[0]);       
+        default:
+        case 'h':
+        case 'H':
+        case '?':   printHelp("Unit Test application.", argv[0]);       
+            return 1;
+        }
+        i++;
+    }
+
+    printHelp("", argv[0]);       
+
   // Lets allocate an object of class Child.
   Child* p_obj1 = new Child;
 
